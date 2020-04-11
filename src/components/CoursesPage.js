@@ -23,7 +23,7 @@ class Courses extends Component {
           <tbody>
             {this.state.cources.map((course) => {
               return (
-                <tr>
+                <tr key={course.id}>
                   <td>{course.title}</td>
                   <td>{course.authorId}</td>
                   <td>{course.category}</td>
