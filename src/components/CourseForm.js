@@ -40,6 +40,7 @@ function CourseForm(props) {
         className="form-control"
         onChange={props.onChange}
         error={props.errors.category}
+        value={props.course.category}
       />
 
       <input type="submit" value="Save" className="btn btn-primary" />
