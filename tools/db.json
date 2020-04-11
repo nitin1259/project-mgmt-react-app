@@ -73,25 +73,9 @@
     {
       "id": 11,
       "authorId": 2,
-      "title": "Oracle Cloud Session",
-      "category": "Tutorials",
-      "createdAt": 1586641237467,
-      "slug": "oracle-cloud-session"
-    },
-    {
-      "id": 12,
-      "authorId": 1,
-      "title": "New HTML Course",
-      "category": "HTML5",
-      "createdAt": 1586641479306,
-      "slug": "new-html-course"
-    },
-    {
-      "id": 13,
-      "authorId": 2,
       "title": "HTML5/CSS3",
       "category": "Frontend",
-      "createdAt": 1586641525471,
+      "createdAt": 1586642045957,
       "slug": "html5-css3"
     }
   ],
