@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 
 function CourseList(props) {
   return (
@@ -27,5 +28,26 @@ function CourseList(props) {
     </table>
   );
 }
+// this is normal check for props
+// CourseList.propTypes = {
+//   courses: PropTypes.array.isRequired,
+// };
+
+// more specific type of validation of props
+CourseList.propTypes = {
+  courses: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      authorId: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+    })
+  ),
+};
+
+// this is when you want to set the default for the props
+// CourseList.defaultProps = {
+//   courses: [],
+// };
 
 export default CourseList;
