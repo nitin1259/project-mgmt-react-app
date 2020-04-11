@@ -77,6 +77,14 @@
       "category": "Frontend",
       "createdAt": 1586642045957,
       "slug": "html5-css3"
+    },
+    {
+      "id": 12,
+      "authorId": 2,
+      "title": "Oracle Certified Java Programmer",
+      "category": "Java",
+      "createdAt": 1586643148203,
+      "slug": "oracle-certified-java-programmer"
     }
   ],
   "authors": [
