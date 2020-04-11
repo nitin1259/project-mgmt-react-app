@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CourseForm from "./CourseForm";
 // import { Prompt } from "react-router-dom";
+import * as courseApi from "../api/courseApi";
 
 const ManageCoursePage = (props) => {
   const [course, setCourse] = useState({
@@ -23,6 +24,11 @@ const ManageCoursePage = (props) => {
     setCourse({ ...course, [target.name]: target.value });
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    courseApi.saveCourse(course);
+  }
+
   // debugger;
   return (
     <>
@@ -35,7 +41,11 @@ const ManageCoursePage = (props) => {
         Slug is:{" "}
         <span style={{ color: "#660" }}>{props.match.params.slug}</span>
       </p>
-      <CourseForm course={course} onChange={handleChange} />
+      <CourseForm
+        course={course}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      />
     </>
   );
 };
