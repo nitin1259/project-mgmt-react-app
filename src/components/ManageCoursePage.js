@@ -10,9 +10,17 @@ const ManageCoursePage = (props) => {
     category: null,
   });
 
-  function handleTitleChange(event) {
-    const updatedCourse = { ...course, title: event.target.value };
-    setCourse(updatedCourse);
+  // function handleChange(event) {
+  //   const updatedCourse = {
+  //     ...course,
+  //     [event.target.name]: event.target.value,
+  //   };
+  //   setCourse(updatedCourse);
+  // }
+
+  // short hand of above method with de-structuring
+  function handleChange({ target }) {
+    setCourse({ ...course, [target.name]: target.value });
   }
 
   // debugger;
@@ -27,7 +35,7 @@ const ManageCoursePage = (props) => {
         Slug is:{" "}
         <span style={{ color: "#660" }}>{props.match.params.slug}</span>
       </p>
-      <CourseForm course={course} onTitleChange={handleTitleChange} />
+      <CourseForm course={course} onChange={handleChange} />
     </>
   );
 };
