@@ -40,3 +40,5 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## Learn More
 
     installed dependencies for mock api - npm install -D cross-env npm-run-all json-server
+
+    https://github.com/coryhouse/react-flux-building-applications/
