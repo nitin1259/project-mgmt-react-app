@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import CourseForm from "./CourseForm";
 // import { Prompt } from "react-router-dom";
-import * as courseApi from "../api/courseApi";
 import { toast } from "react-toastify";
+import store from "../store/courseStore";
+import * as courseActions from "../actions/courseActions";
 
 const ManageCoursePage = (props) => {
   const [errors, setErrors] = useState({});
@@ -17,10 +18,7 @@ const ManageCoursePage = (props) => {
     const slug = props.match.params.slug;
 
     if (slug) {
-      courseApi.getCourseBySlug(slug).then((_course) => {
-        console.log(_course);
-        setCourse(_course);
-      });
+      setCourse(store.getCoursesbySlug(slug));
     }
   }, [props.match.params.slug]);
 
@@ -40,7 +38,9 @@ const ManageCoursePage = (props) => {
   function handleSubmit(event) {
     event.preventDefault();
     if (!isValidForm()) return;
-    courseApi.saveCourse(course).then(() => {
+    // console.log("Befor saving:");
+    // console.log(course);
+    courseActions.saveCourse(course).then(() => {
       props.history.push("/courses");
       toast.success("Saved Successfully");
     });
@@ -66,7 +66,6 @@ const ManageCoursePage = (props) => {
         message="Are you sure and want to continue ???"
       ></Prompt> */}
       <p>
-        Slug is:{" "}
         <span style={{ color: "#660" }}>{props.match.params.slug}</span>
       </p>
       <CourseForm

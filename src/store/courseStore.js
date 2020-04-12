@@ -30,7 +30,7 @@ const store = new CourseStore();
 
 dispatcher.register((action) => {
   switch (action.actionType) {
-    case actionTypes.CHANGE_EVENT:
+    case actionTypes.CREATE_COURSE:
       _courses.push(action.course);
       store.emitChange();
       break;
