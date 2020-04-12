@@ -42,3 +42,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
     installed dependencies for mock api - npm install -D cross-env npm-run-all json-server
 
     https://github.com/coryhouse/react-flux-building-applications/
+
+### More Challenges todo
+
+    1. Show 404 for bogus slug param
+    2. Display author name on Course Page
+    3. Populate the author drop down from api
+    4. Create a reusable drop down component.
+    5. add support for auther management data.

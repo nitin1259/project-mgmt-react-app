@@ -6,6 +6,7 @@ import store from "../store/courseStore";
 import * as courseActions from "../actions/courseActions";
 
 const ManageCoursePage = (props) => {
+  const [courses, setCourses] = useState(store.getCourses());
   const [errors, setErrors] = useState({});
   const [course, setCourse] = useState({
     id: null,
@@ -15,12 +16,23 @@ const ManageCoursePage = (props) => {
   });
 
   useEffect(() => {
-    const slug = props.match.params.slug;
+    store.addChangeListener(onChange);
 
-    if (slug) {
+    const slug = props.match.params.slug;
+    if (courses.length === 0) {
+      courseActions.loadCourses();
+    } else if (slug) {
       setCourse(store.getCoursesbySlug(slug));
     }
-  }, [props.match.params.slug]);
+
+    return () => {
+      store.removeChangeListener(onChange);
+    };
+  }, [courses.length, props.match.params.slug]);
+
+  function onChange() {
+    setCourses(store.getCourses);
+  }
 
   // function handleChange(event) {
   //   const updatedCourse = {
@@ -53,7 +65,6 @@ const ManageCoursePage = (props) => {
     if (!course.category) _errors.category = "Invalid Category";
 
     setErrors(_errors);
-
     // Form is valid if the errors object has no properties
     return Object.keys(_errors).length === 0;
   }
